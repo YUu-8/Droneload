@@ -84,7 +84,9 @@ def main():
     #camera = PiCamera2Source(size=(1280, 720))
     #camera = RubikPiCamera(size=(1280, 720))
     camera = RubikPiCSICamera(camera=0, size=(1280, 720), fps=30)
-    camera.open()
+    if not camera.open():
+        print("[ERROR] Camera failed to open. Exiting.")
+        exit(1)
 
     detector         = make_detector()
     csv_file, writer = init_csv(DETECTION_LOG)

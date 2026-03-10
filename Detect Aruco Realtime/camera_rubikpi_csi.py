@@ -1,4 +1,3 @@
-# camera_rubikpi_csi.py
 import cv2
 import numpy as np
 
