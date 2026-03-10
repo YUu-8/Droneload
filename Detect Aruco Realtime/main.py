@@ -1,5 +1,6 @@
-from camera_picamera2 import PiCamera2Source
+#from camera_picamera2 import PiCamera2Source
 #from camera_rubikpi import RubikPiCamera
+from camera_rubikpi_csi import RubikPiCSICamera
 import cv2
 import csv
 import time
@@ -80,8 +81,9 @@ def init_csv(path):
 
 # Main 
 def main():
-    camera = PiCamera2Source(size=(1280, 720))
+    #camera = PiCamera2Source(size=(1280, 720))
     #camera = RubikPiCamera(size=(1280, 720))
+    camera = RubikPiCSICamera(camera=0, size=(1280, 720), fps=30)
     camera.open()
 
     detector         = make_detector()
